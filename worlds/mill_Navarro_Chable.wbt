@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.967674919259658 -0.25052343094053736 -0.02903895978846824 6.044750936298677
-  position 0.17396463854462485 1.2819012187980021 3.4519608634064154
+  orientation 0.7477112117725586 0.6613127555735313 0.059944833850421285 6.041902255335787
+  position -0.5838781632681432 1.111854616524025 3.659130805273519
 }
 TexturedBackground {
 }
@@ -11,17 +11,23 @@ TexturedBackgroundLight {
 }
 Floor {
 }
-Solid {
+DEF SOLID_BOXES Solid {
   children [
     Group {
       children [
-        Shape {
+        DEF S_BOX Shape {
           appearance PBRAppearance {
             baseColor 0.3058823529411765 0.6039215686274509 0.023529411764705882
           }
           geometry DEF G_BOX Box {
-            size 1 0.02 1
+            size 1 0.05 1
           }
+        }
+        Transform {
+          translation 0 1 0
+          children [
+            USE S_BOX
+          ]
         }
       ]
     }
