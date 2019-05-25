@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.7477112117725586 0.6613127555735313 0.059944833850421285 6.041902255335787
-  position -0.5838781632681432 1.111854616524025 3.659130805273519
+  orientation 0.9978795186969666 0.06506124365343512 -0.0018710262901657712 0.05762211923609914
+  position 0.1177216000912018 0.325666982453202 2.309469758647669
 }
 TexturedBackground {
 }
@@ -11,7 +11,7 @@ TexturedBackgroundLight {
 }
 Floor {
 }
-DEF SOLID_BOXES Solid {
+DEF SOLID_BOXES(1) Solid {
   children [
     Group {
       children [
@@ -32,4 +32,64 @@ DEF SOLID_BOXES Solid {
       ]
     }
   ]
+}
+DEF SOL_BOXES(2) Solid {
+  translation 0.44499999999999995 0.5 0.5
+  children [
+    DEF GROUP_BOXES(2) Group {
+      children [
+        DEF S_BOX2 Shape {
+          appearance DEF AP_BOX PBRAppearance {
+          }
+          geometry DEF G_BOX2 Box {
+            size 0.1 0.95 0.01
+          }
+        }
+        Transform {
+          translation -0.89 0 0
+          children [
+            USE S_BOX2
+          ]
+        }
+        DEF T_BOX3 Transform {
+          translation -0.45 0.43 0
+          rotation 0 1 0 1.57
+          children [
+            Shape {
+              appearance USE AP_BOX
+              geometry DEF G_BOX3 Box {
+                size 0.01 0.1 0.8
+              }
+            }
+          ]
+        }
+        USE T_BOX3
+        Transform {
+          translation -0.45769549707086704 0.00014640289607677215 0
+          rotation 0 0 1 0.785
+          children [
+            Shape {
+              appearance USE AP_BOX
+              geometry Box {
+                size 0.07 1.1 0.01
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.43133791777344166 0.0068993253925035 0
+          rotation 0 0 -1 0.785
+          children [
+            Shape {
+              appearance USE AP_BOX
+              geometry Box {
+                size 0.07 1.1 0.01
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "solid(1)"
 }
