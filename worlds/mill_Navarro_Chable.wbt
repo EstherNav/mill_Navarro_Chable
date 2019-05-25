@@ -294,16 +294,16 @@ DEF S_Mill Solid {
             }
           ]
         }
-        DEF GROUP_FINAL Group {
+        DEF G_FINAL Group {
           children [
             Transform {
-              translation 0 1.1699999999999997 0
+              translation 0 1.225 0
               children [
                 Shape {
                   appearance PBRAppearance {
                     baseColor 0 0 0
                   }
-                  geometry Box {
+                  geometry DEF G_BOXMILL Box {
                     size 0.1 0.4 0.1
                   }
                 }
@@ -314,15 +314,14 @@ DEF S_Mill Solid {
                     staticFriction 0.02
                   }
                   endPoint Solid {
-                    translation 0.009999999999999886 0.40000000000000013 0
+                    translation 0.35 0.22 0
                     children [
                       Shape {
-                        appearance PBRAppearance {
-                          baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+                        appearance DEF APP_Y PBRAppearance {
+                          baseColor 0.9882352941176471 0.9137254901960784 0.30980392156862746
                         }
-                        geometry DEF G_CYL Cylinder {
-                          height 0.03
-                          radius 0.2
+                        geometry DEF G_B Box {
+                          size 0.8 0.05 0.06
                         }
                       }
                       HingeJoint {
@@ -331,14 +330,14 @@ DEF S_Mill Solid {
                           staticFriction 0.01
                         }
                         endPoint Solid {
-                          translation 0.355 0 0
+                          translation 0.3550000000625196 -3.9202189960896305e-06 0
                           rotation 1 0 0 0
                           children [
-                            DEF GROUP_MILL Group {
+                            DEF GROUP Group {
                               children [
                                 Shape {
-                                  appearance DEF APP_YELLOW PBRAppearance {
-                                    baseColor 0.9882299999999999 0.9137254901960784 0.30980392156862746
+                                  appearance DEF APP_Y PBRAppearance {
+                                    baseColor 0.9607843137254902 0.4745098039215686 0
                                   }
                                   geometry DEF G_MILL Box {
                                     size 0.01 0.5 0.05
@@ -348,7 +347,7 @@ DEF S_Mill Solid {
                                   rotation 1 0 0 1.57
                                   children [
                                     Shape {
-                                      appearance USE APP_YELLOW
+                                      appearance USE APP_Y
                                       geometry USE G_MILL
                                     }
                                   ]
@@ -356,13 +355,12 @@ DEF S_Mill Solid {
                               ]
                             }
                           ]
-                          boundingObject USE GROUP_MILL
                           physics Physics {
                           }
                         }
                       }
                     ]
-                    boundingObject USE G_CYL
+                    boundingObject USE G_B
                     physics Physics {
                     }
                   }
